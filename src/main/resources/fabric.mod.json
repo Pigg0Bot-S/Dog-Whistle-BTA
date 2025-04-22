@@ -29,6 +29,12 @@
 		],
 		"recipesReady": [
 			"pigg0bot.dogwhistle.DogWhistle"
+		],
+		"afterItemInit": [
+			"pigg0bot.dogwhistle.DogWhistle"
+		],
+		"initModels": [
+			"pigg0bot.dogwhistle.DogWhistle"
 		]
 	},
   "mixins": [
