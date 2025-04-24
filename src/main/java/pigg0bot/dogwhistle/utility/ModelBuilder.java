@@ -10,20 +10,34 @@ import java.util.function.Supplier;
 
 public class ModelBuilder {
 
-	public static @NotNull Supplier<ItemModel> BuildTool(Item item, String icon_key) {
-		if (item == null || icon_key == null) {
-			throw new IllegalArgumentException("Parameter must not be null!");
-		}
-
+	public static @NotNull <T extends ItemModel> Supplier<ItemModel> BuildItem(Item item, String icon_key, T modelBase) {
 		return () -> {
-			ItemModelStandard tempModel = new ItemModelStandard(item, null).setRotateWhenRendering().setFull3D();
+			ItemModelStandard tempModel = new ItemModelStandard(item, null);
 			tempModel.icon = TextureRegistry.getTexture(icon_key);
 			return tempModel;
 		};
 	}
 
-	public static @NotNull Supplier<ItemModel> BuildTool(Item item) {
-		return BuildTool(item, item.namespaceID.toString());
+	public static @NotNull Supplier<ItemModel> BuildItem(Item item) {
+		return BuildItem(item, item.namespaceID.toString());
 	}
+
+//	public static @NotNull Supplier<ItemModel> BuildTool(Item item, String icon_key) {
+//		if (item == null || icon_key == null) {
+//			throw new IllegalArgumentException("Parameter must not be null!");
+//		}
+//
+//		return () -> {
+//			ItemModelStandard tempModel = new ItemModelStandard(item, null).setRotateWhenRendering().setFull3D();
+//			tempModel.icon = TextureRegistry.getTexture(icon_key);
+//			return tempModel;
+//		};
+//	}
+//
+//	public static @NotNull Supplier<ItemModel> BuildTool(Item item) {
+//		return BuildTool(item, item.namespaceID.toString());
+	}
+
+
 
 }
