@@ -34,7 +34,7 @@
 			"pigg0bot.dogwhistle.DWItems"
 		],
 		"initModels": [
-			"pigg0bot.dogwhistle.DogWhistle"
+			"pigg0bot.dogwhistle.DWModels"
 		]
 	},
   "mixins": [

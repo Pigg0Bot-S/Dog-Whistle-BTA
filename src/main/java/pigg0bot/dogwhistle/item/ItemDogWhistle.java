@@ -7,8 +7,9 @@ import net.minecraft.core.item.ItemStack;
 
 
 public class ItemDogWhistle extends Item {
-	public ItemDogWhistle(String name, String namespaceId, int id) {
+	public ItemDogWhistle(String name, String namespaceId, int id, int maxStack) {
 		super(name, namespaceId, id);
+		this.maxStackSize = maxStack;
 	}
 
 

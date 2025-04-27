@@ -10,17 +10,19 @@ import java.util.function.Supplier;
 
 public class ModelBuilder {
 
-	public static @NotNull <T extends ItemModel> Supplier<ItemModel> BuildItem(Item item, String icon_key, T modelBase) {
+	public static @NotNull Supplier<ItemModel> BuildItem(Item item, String icon_key, ModelProvider modelProvider) {
 		return () -> {
-			ItemModelStandard tempModel = new ItemModelStandard(item, null);
+			ItemModelStandard tempModel = modelProvider.provide(item, null);
 			tempModel.icon = TextureRegistry.getTexture(icon_key);
 			return tempModel;
 		};
 	}
 
-	public static @NotNull Supplier<ItemModel> BuildItem(Item item) {
-		return BuildItem(item, item.namespaceID.toString());
+	public static @NotNull Supplier<ItemModel> BuildItem(Item item, ModelProvider modelProvider) {
+		return BuildItem(item, item.namespaceID.toString(), modelProvider);
 	}
+
+
 
 //	public static @NotNull Supplier<ItemModel> BuildTool(Item item, String icon_key) {
 //		if (item == null || icon_key == null) {
@@ -36,7 +38,7 @@ public class ModelBuilder {
 //
 //	public static @NotNull Supplier<ItemModel> BuildTool(Item item) {
 //		return BuildTool(item, item.namespaceID.toString());
-	}
+//	}
 
 
 
